@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Журнал</title>
+</head>
+<body>
+    <h1>Журнал</h1>
+    <ul>
+        <#list library.logbook as logbook>
+        <li>
+            <#if logbook.tookTheBook??>
+            <b>Когда взял: ${logbook.tookTheBook}</b>
+            <#else>
+            <b>Не брал</b>
+            </#if>
+            <#if logbook.returnedTheBook??>
+            <b>${logbook.returnedTheBook}</b>
+            <#else>
+            <b>Еще не вернул</b>
+            </#if>
+            Название книги: <b>${logbook.book.name}</b>
+            Имя: <b>${logbook.employee.name}</b>
+            Фамилия: <b>${logbook.employee.surname}</b>
+        </li>
+        </#list>
+    </ul>
+</body>
+</html>

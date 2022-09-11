@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сотрудники</title>
+</head>
+<body>
+    <h1>Список сотрудников</h1>
+    <ul>
+        <#list library.employeesList as employee>
+        <li>
+            Имя: <b>${employee.name}</b></a>
+            Фамилия: <b>${employee.surname}</b>
+            Количество взятых книг: <b>${employee.numberOfBooks}</b>
+        </li>
+    </#list>
+    </ul>
+    <h2> <a href="http://localhost:9879/logbook">Журнал</a></h2>
+    <h2> <a href="http://localhost:9879/index">Вернуться на главную</a></h2>
+    <h2> <a href="http://localhost:9879/employee">Вернуться в профиль</a></h2>
+</body>
+</html>

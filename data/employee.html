@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сотрудник</title>
+</head>
+<body>
+    <h1>Информация о сотруднике</h1>
+    <#list library.employeesList as employee>
+        <#if employee.id == userId>
+            <p>Имя: ${employee.name}</p>
+            <p>Фамилия: ${employee.surname}</p>
+            <p>Мэйл: ${employee.email}</p>
+            <p>Количество книг: ${employee.numberOfBooks}</p>
+        </#if>
+    </#list>
+    <#list library.logbook as logbook>
+        <#list library.employeesList as employee>
+            <#if logbook.employee.email == employee.email>
+                <p>Запись</p>
+                <#if logbook.tookTheBook??>
+                <p>Когда взял: ${logbook.tookTheBook}</p>
+                <#else>
+                <p>Не брал</p>
+                </#if>
+                <#if logbook.returnedTheBook??>
+                    <p>Когда вернул: ${logbook.returnedTheBook}</p>
+                <#else>
+                    <p>Не вернул</p>
+                </#if>
+                <p>Книга: ${logbook.book.name}</p>
+            </#if>
+        </#list>
+    </#list>
+
+    <a href="http://localhost:9879/books">Перейти в библиотеку</a>
+    <p></p>
+    <p></p>
+    <form action="/employee" method="post">
+        <button class="register-button" name ="exit" value="1" type="submit">Выход</button>
+    </form>
+    <p></p>
+    <p></p>
+    <h3>История</h3>
+
+</body>
+</html>

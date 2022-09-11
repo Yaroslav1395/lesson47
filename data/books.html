@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books List</title>
+</head>
+<body>
+    <h1>Список книг которые есть в библиотеке </h1>
+    <ul>
+        <#list library.booksList as book>
+        <li>
+            Название книги: <a href="http://localhost:9879/book?bookId=${book.id}"><b>${book.name}</b></a>
+            Статус: <b>${book.sued?string("выдана", "не выдана")}</b>
+            <#if book.sued>
+            Книга выдана: <b>${book.toWhomIssued.surname}</b>
+            <#else>
+            Книга в библиотеке
+            </#if>
+            <#if isAuthorized??>
+                <#if book.sued>
+                    <form action="/books" method="post">
+                        <button class="register-button" name ="bookReturn" value="${book.id}" type="submit">Вернуть книгу</button>
+                    </form>
+                <#else>
+                    <form action="/books" method="post">
+                        <button class="register-button" name ="bookTake" value="${book.id}" type="submit">Взять книгу</button>
+                    </form>
+                </#if>
+            </#if>
+        </li>
+        </#list>
+    </ul>
+    <h2> <a href="http://localhost:9879/employees">Список сотрудников</a></h2>
+    <h2> <a href="http://localhost:9879/logbook">Журнал</a></h2>
+    <h2> <a href="http://localhost:9879/">Вернуться на главную</a></h2>
+</body>
+</html>

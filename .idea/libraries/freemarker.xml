@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="freemarker">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/vendor/freemarker.jar!/" />
+      <root url="file://$PROJECT_DIR$/vendor" />
+      <root url="file://$PROJECT_DIR$/vendor" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/vendor" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/vendor" recursive="false" />
+  </library>
+</component>
